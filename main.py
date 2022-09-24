@@ -15,7 +15,6 @@ columns = ['Jour','Distance','Denivele','Duree','VMoy','VMax','DistMoy','Denivel
 dtypes = {'Jour':'float','Distance':'float','Denivele':'float','Duree':'float','VMoy':'float','VMax':'float','DistMoy':'float','DeniveleMoy':'float','DureeMoy':'float'}
 parse_dates = ['Duree', 'DureeMoy']
 df = pd.read_csv("2022_GTMC_Damien_Statistiques.csv", usecols=columns, dtype=dtypes, parse_dates=parse_dates)
-print(df.head())
 
 
 # Ouverture du fichier GPX et conversion en panda Dataframe
