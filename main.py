@@ -72,7 +72,7 @@ app.layout = dbc.Container([
 # Callback allows components to interact
 @app.callback(
     Output(mygraph, component_property='figure'),
-    Output(mytitle, component_property='title'),
+    Output(mytitle, component_property='children'),
     Input(dropdown, component_property='value')
 )
 def update_graph(column_name):  # function arguments come from the component property of the Input
