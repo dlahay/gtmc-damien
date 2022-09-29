@@ -17,10 +17,6 @@ parse_dates = ['Duree', 'DureeMoy']
 df = pd.read_csv("2022_GTMC_Damien_Statistiques.csv", usecols=columns, dtype=dtypes, parse_dates=parse_dates)
 
 
-# Ouverture du fichier GPX et conversion en panda Dataframe
-etape = Converter(input_file='2022-08-06_874854723_GTMC Étape 1.gpx').gpx_to_dataframe()
-
-
 
 
 # Define the graphs
@@ -48,7 +44,7 @@ fig_etape = px.scatter_mapbox(
 fig_etape.update_layout(
     margin=dict(r=0, t=0, l=0, b=0),
     mapbox_style="open-street-map",
-      )
+    )
 
 fig_etape.update_traces(hovertemplate='<b>%{hovertext}</b><br><br>(%{customdata[0]:.2f}, %{customdata[1]:.2f})<br>Elev. %{customdata[2]:} .ft<extra></extra>')
 
@@ -72,6 +68,8 @@ graph_etape = dcc.Graph(figure=fig_etape)
 dropdown = dcc.Dropdown(options=df.columns.values[1:],
                         value='Distance',  # initial value displayed when page first loads
                         clearable=False)
+
+dropdown_etape = dcc.Dropdown(options=[],value='GTMC Complète',clearable=False)
 
 # Customize your own Layout
 # ajouter les widgets sur le layout
