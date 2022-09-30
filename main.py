@@ -26,7 +26,7 @@ fig_dist_vmoy = px.scatter(df, x='Distance', y='VMoy', color='Jour', hover_name=
 fig_distance = px.bar(data_frame=df, x="Jour", y='Distance', orientation='v')
 fig_denivele = px.bar(data_frame=df, x="Jour", y='Denivele', orientation='v')
 fig_duree = px.bar(data_frame=df, x="Jour", y='Duree', orientation='v')
-fig_etape = px.scatter_mapbox(
+'''fig_etape = px.scatter_mapbox(
     etape, 
     lat="latitude", 
     lon="longitude",
@@ -47,7 +47,7 @@ fig_etape.update_layout(
     )
 
 fig_etape.update_traces(hovertemplate='<b>%{hovertext}</b><br><br>(%{customdata[0]:.2f}, %{customdata[1]:.2f})<br>Elev. %{customdata[2]:} .ft<extra></extra>')
-
+'''
 
 # Build your components
 app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])
@@ -59,7 +59,7 @@ graph_dist_vmoy = dcc.Graph(figure=fig_dist_vmoy)
 graph_dist = dcc.Graph(figure=fig_distance)
 graph_denivele = dcc.Graph(figure=fig_denivele)
 graph_duree = dcc.Graph(figure=fig_duree)
-graph_etape = dcc.Graph(figure=fig_etape)
+#graph_etape = dcc.Graph(figure=fig_etape)
 
 
 
@@ -93,7 +93,7 @@ app.layout = dbc.Container([
     dbc.Row([
         dbc.Col([dropdown], width=6)
     ], justify='center'),
-    dbc.Row([graph_etape])
+    #dbc.Row([graph_etape])
 
 ], fluid=True)
 
